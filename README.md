@@ -71,3 +71,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+## Web Application Description
+Application Web pour faciliter la gestion de son budget.
+L'utilisateur peut s'inscrire/se connecter, se fixer un objectif à atteindre, indiquer le montant de ses entrées d'argent et ses charges mensuelles. De là, un calcul se fait pour définir le montant de son budget hebdomadaire. Le but est alors de respecter ce budget voire même de dépenser moins afin de réaliser des gains (à l'inverse on parlera alors de perte). Les gains cumuler permettront d'atteindre l'objectif qu'il s'était fixer. 

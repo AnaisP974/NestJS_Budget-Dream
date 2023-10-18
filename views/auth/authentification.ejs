@@ -1,0 +1,43 @@
+<%- include("../partials/header", {title: "Login page", style: "auth"}) %>
+
+<header>
+    <%- include("../partials/banner", {link:"/", button: "Home"}) %>
+</header>
+
+<main>
+    <% if(locals.register) { %>
+        <p><%= locals.message %></p>
+    <% } %>
+
+    <section id="auth_block">
+        <div class="form_auth">
+            <h2>Connexion</h2>
+            <div class="separator"></div>
+            <form action="/auth/login" method="post">
+                <%- include("../components/input", {type : "email", name: "email", label: "Email"}) %>
+                <%- include("../components/input", {type : "password", name: "password", label: "Password"}) %>
+                <div class="separator"></div>
+                <div class="btn-center">
+                    <button type="submit">Log in</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="form_auth">
+            <h2>Inscription</h2>
+            <div class="separator"></div>
+            <form action="/auth/register" method="post">
+                <%- include("../components/input", {type : "text", name: "pseudo", label: "Pseudo"}) %>
+                <%- include("../components/input", {type : "email", name: "email", label: "Email"}) %>
+                <%- include("../components/input", {type : "password", name: "password", label: "Password"}) %>
+                <div class="separator"></div>
+                <div class="btn-center">
+                    <button type="submit">Register</button>
+                </div>
+            </form>        
+        </div>
+    </section>
+    <div class="separator_section"></div>
+</main>
+
+<%- include("../partials/footer") %>

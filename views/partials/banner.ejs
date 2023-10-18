@@ -1,0 +1,13 @@
+<section id="banner_block">
+    <div class="banner">
+        <h1>Budget-Dream</h1>
+        <p><i>Managing your budget and achieving your goals !</i></p>
+    </div>
+    <% if (locals.type) { %>
+        <form action="<%= link %>" method="post">
+            <button type="<%= type %>"><%= button %></button>
+        </form>
+    <% } else { %>
+        <a href="<%= link %>"><button><%= button %></button></a>
+    <% } %>
+</section>

@@ -1,0 +1,39 @@
+<%- include("../partials/header", {title: "Nouveau projet", style: "profile"}) %>
+
+<header>
+    <%- include("../partials/banner", {link:"/auth/logout", button: "Deconnexion", type:"submit"}) %>
+    <%- include("../partials/navbar") %>
+</header>
+
+<main>
+    <div class="separator_section"></div>
+
+    <h2>Nouveau projet :</h2>
+
+    <div class="separator"></div>
+    <div class="center">
+        <form action="/goal/add" method="post">
+            <%- include("../components/input", {type : "text", name: "name", label: "Nom :"}) %>
+            <%- include("../components/input", {type : "number", name: "cost", label: "Coût :"}) %>
+            <%- include("../components/input", {type : "text", name: "image", label: "Ajouter une image"}) %>
+            <div class="form-textarea">
+                <label for="description">Description :</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
+            
+            <input type="hidden" name="status" id="status" value="waiting" required>
+    
+            <div class="btn-center">
+                <button type="submit">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+
+
+    <a href="/user">< Retour</a>
+
+
+    <div class="separator_section"></div>
+</main>
+
+<%- include("../partials/footer") %>

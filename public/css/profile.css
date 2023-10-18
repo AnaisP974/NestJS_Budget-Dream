@@ -1,0 +1,14 @@
+/* FORMULAIRES */
+
+form{
+    padding: 20px;
+    max-width: 400px;
+}
+form label, input, textarea{
+    width: 100%;
+}
+.form-textarea, .form-group{
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,37 @@
+<%- include("../partials/header", {title: "Profile", style: "profile"}) %>
+
+<header>
+    <%- include("../partials/banner", {link:"/auth/logout", button: "Deconnexion", type:"submit"}) %>
+    <%- include("../partials/navbar") %>
+</header>
+
+<main>
+    <div class="separator_section"></div>
+
+    <% if(locals.connected) { %>
+        <h2>Bonjour <%= locals.user.pseudo %></h2>
+        <% } else { %>
+        <h2>Bonjour Inconnu</h2>
+    <% } %>
+    <div class="separator"></div>
+    
+    <% if (locals.goals) { %>
+        <div class="goals">
+            <% goals.forEach(goal => { %>
+            <div class="goal">
+                <h3><%= goal.name %></h3>
+                <p>Coût : <%= goal.cost %> €</p>
+                <p>Image : <%= goal.image %></p>
+                <p>Description: <%= goal.description %></p>
+                <p>Status : <%= goal.status %></p>
+            </div>
+            <% }) %>
+        </div>
+    <% } %>
+    <a href="/goal/add">Ajouter un objectif</a>
+
+
+    <div class="separator_section"></div>
+</main>
+
+<%- include("../partials/footer") %>

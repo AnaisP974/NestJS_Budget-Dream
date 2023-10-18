@@ -1,0 +1,25 @@
+#auth_block{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.form_auth{
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 30px;
+    margin-top: 70px;
+}
+.form-group{
+    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.form-group label{
+    width: 100%;
+}
+.form-group input{
+    border: none;
+    border-bottom: 1px solid black;
+    margin-top: 5px;
+}
