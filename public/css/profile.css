@@ -12,3 +12,47 @@ form label, input, textarea{
     display: flex;
     flex-wrap: wrap;
 }
+
+#profile a{
+    text-decoration: none;
+}
+
+#profile, .goals, .budgets{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.block_profile{
+    width: 300px;
+    padding: 1rem;
+    border: 1px solid #7A6C7A;
+    background-color: #d5c0d5;
+    border-radius: 30px;
+    text-align: center;
+    color: #0a0a0a;
+    font-weight: 600;
+    margin-top: 40px;
+}
+.block_profile:hover{
+    border: 2px solid #7A6C7A;
+}
+.block_profile img{
+    width: 65px;
+}
+
+.goal{
+    padding: 2rem;
+    background-color: rgb(234, 223, 162);
+}
+
+.réalisé{
+    background-color: rgb(162, 234, 168);
+}
+
+.budget{
+    border: 1px solid #7A6C7A;
+    border-radius: 30px;
+    padding: 2rem;
+    margin-top: 20px;
+}

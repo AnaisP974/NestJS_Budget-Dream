@@ -5,6 +5,13 @@
     font-family: 'Work Sans', sans-serif;
 }
 
+.space-between{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
 .btn-center, .center{
     display: flex;
     justify-content: center;

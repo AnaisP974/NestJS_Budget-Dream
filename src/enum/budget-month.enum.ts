@@ -11,4 +11,4 @@ export enum BudgetMonthEnum {
     OCT = 'Octobre',
     NOV = 'Novembre',
     DEC = 'Décembre',
-  }
+}

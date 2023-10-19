@@ -1,0 +1,50 @@
+<%- include("../partials/header", {title: "Nouveau projet", style: "profile"}) %>
+
+<header>
+    <%- include("../partials/banner", {link:"/auth/logout", button: "Deconnexion", type:"submit"}) %>
+</header>
+
+<main>
+    
+    <div class="space-between">
+        <h2>Mes projets :</h2>
+        <a href="/goal/add">+ Nouveau</a>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="center">
+        <% if (locals.goals) { %>
+        <div class="goals">
+            <% goals.forEach(goal => { %>
+                <div class="goal <%= goal.status %>">
+                    <div class="space-between"> 
+                        <h3><%= goal.name %></h3>
+                        <p><%= goal.cost %> €</p>
+                    </div>
+                    <div class="separator"></div>
+                    <p>Image : <%= goal.image %></p>
+                    <p>Description: <%= goal.description %></p>
+                    <p>Status : <%= goal.status %></p>  
+                    <div class="separator"></div>
+                    <div class="space-between"> 
+                        <a href=""><i class="bi bi-eye"></i></a>
+                        <a href=""><i class="bi bi-pen"></i></a>
+                        <a href="" title="Terminer"><i class="bi bi-check2-circle"></i></a>
+                        <a href=""><i class="bi bi-trash"></i></a>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        <% } %>
+    
+    </div>
+
+
+    <a href="/user">< Retour</a>
+
+
+    <div class="separator_section"></div>
+</main>
+
+<%- include("../partials/footer") %>

@@ -1,17 +1,17 @@
 import { Type } from "class-transformer";
-import { IsString, IsEmail, IsNotEmpty, Length, IsNumber, IsOptional, IsEnum, IsDefined } from "class-validator";
+import { IsString, Length, IsNumber, IsOptional, IsEnum, IsDefined } from "class-validator";
 import { GoalStatusEnum } from "src/enum/goal-status.enum";
 
-export class AddGoalDto {
+export class UpdateGoalDto {
 
     @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     @Length(3, 150)
     readonly name: string;
     
     @IsNumber()
     @Type(() => Number)
-    @IsNotEmpty()
+    @IsOptional()
     readonly cost: number;
 
     @IsString()
@@ -20,7 +20,7 @@ export class AddGoalDto {
     readonly image: string;
 
     @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     @Length(3, 350)
     readonly description: string;
 

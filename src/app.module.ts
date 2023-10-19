@@ -6,7 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entity/user.entity';
 import { GoalModule } from './goal/goal.module';
-import { Goal } from './goal/entity/goal.entity';
+import { GoalEntity } from './goal/entity/goal.entity';
 import { BudgetMonthModule } from './budget-month/budget-month.module';
 import { BudgetMonthEntity } from './budget-month/entity/budgetMonth.entity';
 import * as dotenv from 'dotenv';
@@ -23,7 +23,7 @@ dotenv.config()
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [User, Goal, BudgetMonthEntity, TimestampEntity ],
+      entities: [User, GoalEntity, BudgetMonthEntity, TimestampEntity ],
       synchronize: true,
     }),
     UserModule, 

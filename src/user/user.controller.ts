@@ -11,4 +11,6 @@ export class UserController {
         const goals = await this.goalService.getAllGoals();
         return {goals};
     }
+
+    
 }

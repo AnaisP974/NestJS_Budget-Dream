@@ -2,34 +2,42 @@
 
 <header>
     <%- include("../partials/banner", {link:"/auth/logout", button: "Deconnexion", type:"submit"}) %>
-    <%- include("../partials/navbar") %>
+    <!-- <%- include("../partials/navbar") %> -->
 </header>
 
 <main>
-    <div class="separator_section"></div>
+    <div class="separator"></div>
 
-    <% if(locals.connected) { %>
+    <section id="profile">
+        <% if(locals.connected) { %>
         <h2>Bonjour <%= locals.user.pseudo %></h2>
         <% } else { %>
         <h2>Bonjour Inconnu</h2>
-    <% } %>
-    <div class="separator"></div>
+        <% } %>
+        <div class="separator"></div>
     
-    <% if (locals.goals) { %>
-        <div class="goals">
-            <% goals.forEach(goal => { %>
-            <div class="goal">
-                <h3><%= goal.name %></h3>
-                <p>Coût : <%= goal.cost %> €</p>
-                <p>Image : <%= goal.image %></p>
-                <p>Description: <%= goal.description %></p>
-                <p>Status : <%= goal.status %></p>
+        <a href="/goal">
+            <div class="block_profile">
+                <img src="/image/start-up.png" alt="">
+                <div class="separator"></div>
+                <p>Mes Projets</p>
             </div>
-            <% }) %>
-        </div>
-    <% } %>
-    <a href="/goal/add">Ajouter un objectif</a>
-
+        </a>
+        <a href="/budget-month">
+            <div class="block_profile">
+                <img src="/image/calculator.png" alt="">
+                <div class="separator"></div>
+                <p>Mon Budget</p>
+            </div>
+        </a>
+        <a href="/user">
+            <div class="block_profile">
+                <img src="/image/settings.png" alt="">
+                <div class="separator"></div>
+                <p>Mon Compte</p>
+            </div>
+        </a>
+    </section>
 
     <div class="separator_section"></div>
 </main>
