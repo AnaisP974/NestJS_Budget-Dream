@@ -1,0 +1,118 @@
+<%- include("../partials/header", {title: "Budget Mensuel", style: "budget"})
+%>
+
+<header>
+  <%- include("../partials/banner", {link:"/auth/logout", button: "Deconnexion",
+  type:"submit"}) %>
+</header>
+
+<main>
+    <div class="separator"></div>
+
+  <div class="space-between">
+    <h2>Budget <%= budget.month %> <%= budget.year %>:</h2>
+    <a href="/budget-month/update/<%= budget.id %>">Modifier les entrées et sorties</a>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="center">
+    <table>
+      <caption>
+        "Je définis toutes mes entrées d'argent pour le mois."
+      </caption>
+      <thead>
+        <tr>
+          <th colspan="2">Entrées d'argent :</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Salaire</td>
+          <td><%= budget.salary %> €</td>
+        </tr>
+        <tr>
+          <td>Aides Sociales</td>
+          <td><%= budget.socialAssistance %> €</td>
+        </tr>
+        <tr>
+          <td>Aide d'un tiers</td>
+          <td><%= budget.helpThird %> €</td>
+        </tr>
+        <tr>
+          <td>Autre entrée d'argent</td>
+          <td><%= budget.otherCommingIn %> €</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total Budget mensuel :</td>
+          <td><%= budget.monthBudget %> €</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="separator_section"></div>
+    
+    <table>
+      <caption>
+        "Je définis toutes mes charges du mois."
+      </caption>
+      <thead>
+        <tr>
+          <th colspan="2">Sorties d'argent :</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Loyer/Crédit Maison</td>
+          <td><%= budget.rent %> €</td>
+        </tr>
+        <tr>
+          <td>Eau, gaz électricité</td>
+          <td><%= budget.energyInvoices %> €</td>
+        </tr>
+        <tr>
+          <td>Assurances (maison, auto, moto ...)</td>
+          <td><%= budget.insuranceInvoices %> €</td>
+        </tr>
+        <tr>
+          <td>Téléphones (fixe et mobile)</td>
+          <td><%= budget.telephonesInvoices %> €</td>
+        </tr>
+        <tr>
+            <td>Autres prélévements :</td>
+            <td><%= budget.otherDebits %> €</td>
+          </tr>
+          <tr>
+            <td>Autres factures :</td>
+            <td><%= budget.otherInvoices %> €</td>
+          </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Charge mensuel :</td>
+          <td><%= budget.monthExpenses %> €</td>
+        </tr>
+      </tfoot>
+    </table>
+    
+    <div class="separator_section"></div>
+
+    <div class="forecasts">
+        <h3>Prévisions :</h3>
+        <p>Reste à vivre mensuel de : <%= budget.monthRemains %> €.</p>
+        <p>Reste à vivre hebdomadaire de : <%= budget.weekRemains %> €.</p>
+    </div>
+
+    <div class="separator_section"></div>
+
+    <a href="/week-budget/add"><button>Créer le budget hebdomadaire</button></a>
+  </div>
+
+  <a href="/budget-month">< Retour</a>
+
+  <div class="separator_section"></div>
+</main>
+
+<%- include("../partials/footer") %>

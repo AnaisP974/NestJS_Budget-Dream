@@ -46,10 +46,12 @@ export class BudgetMonthController {
         session.register = true;
     }
 
-    // DETAIL FOR ONE
+    // DETAIL FOR ONE*
     @Get('details/:id')
-    async getBudgetMonthById(@Param('id', ParseIntPipe) id: number): Promise<BudgetMonthEntity>{
-        return await this.budgetMonthService.getBudgetMonthById(id);
+    @Render("budget/read-budget")
+    async getBudgetMonthById(@Param('id', ParseIntPipe) id: number) {
+        const budget = await this.budgetMonthService.getBudgetMonthById(id);
+        return  {budget};
     }
 
     // Créer une route pour filtrer les budgets selon s'il s'agit d'un gain/perte

@@ -20,24 +20,24 @@
 
     <div class="center">
         <% if (locals.budgets) { %>
-        <div class="budgets">
-            <% budgets.forEach(budget => { %>
-                <div class="budget">
+            <div class="budgets">
+                <% budgets.forEach(budget => { %>
+                    <div class="budget">
 
-                    <h3><%= budget.month %> <%= budget.year %></h3>
-                    <p>Entrées: +<%= budget.monthBudget %> €</p>
-                    <p>Sorties: -<%= budget.monthExpenses %> €</p>
-                    <p>Prévisions mensuels: <%= budget.monthRemains %> €</p>
-                    <p>Prévisions hebdomadaires: <%= budget.weekRemains %> €</p>
+                        <h3><%= budget.month %> <%= budget.year %></h3>
+                        <p>Entrées: +<%= budget.monthBudget %> €</p>
+                        <p>Sorties: -<%= budget.monthExpenses %> €</p>
+                        <p>Prévisions mensuels: <%= budget.monthRemains %> €</p>
+                        <p>Prévisions hebdomadaires: <%= budget.weekRemains %> €</p>
 
-                    <div class="separator"></div>
-                    
-                    <div class="space-between"> 
-                        <a href="/budget-month/details/<%= budget.id %>"><i class="bi bi-eye"></i></a>
-                        <a href="/budget-month/update/<%= budget.id %>"><i class="bi bi-pen"></i></a>
-                        <a href="/budget-month/delete/<%= budget.id %>"><i class="bi bi-trash"></i></a>
+                        <div class="separator"></div>
+                        
+                        <div class="space-between"> 
+                            <a href="/budget-month/details/<%= budget.id %>"><i class="bi bi-eye"></i></a>
+                            <a href="/budget-month/update/<%= budget.id %>"><i class="bi bi-pen"></i></a>
+                            <a href="/budget-month/delete/<%= budget.id %>"><i class="bi bi-trash"></i></a>
+                        </div>
                     </div>
-                </div>
                 <% }) %>
             </div>
         <% } %>

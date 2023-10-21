@@ -1,6 +1,7 @@
 import { TimestampEntity } from 'src/Generics/timestamp.entity';
 import { BudgetMonthEnum } from 'src/enum/budget-month.enum';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { WeekBudgetEntity } from 'src/week-budget/entity/week-budget.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
 
 @Entity()
 export class BudgetMonthEntity extends TimestampEntity {
@@ -105,4 +106,7 @@ export class BudgetMonthEntity extends TimestampEntity {
   })
   weekRemains: number;
 
+  @OneToOne(() => WeekBudgetEntity)
+  @JoinColumn()
+  weekBudget: WeekBudgetEntity;
 }

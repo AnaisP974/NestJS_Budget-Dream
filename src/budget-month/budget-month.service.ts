@@ -5,12 +5,14 @@ import { Injectable, NotAcceptableException, NotFoundException } from "@nestjs/c
 import { BudgetMonthDto } from "./dtos/budget-month.dto";
 import { UpdateBudgetMonthDto } from "./dtos/update-budget-month.dto";
 import { User } from "src/user/entity/user.entity";
+import { WeekBudgetEntity } from "src/week-budget/entity/week-budget.entity";
 
 
 @Injectable()
 export class BudgetMonthService {
     constructor(
-        @InjectRepository(BudgetMonthEntity) private budgetMonthRepository: Repository<BudgetMonthEntity>
+        @InjectRepository(BudgetMonthEntity) private budgetMonthRepository: Repository<BudgetMonthEntity>,
+        @InjectRepository(WeekBudgetEntity) private weekBudgetRepository: Repository<WeekBudgetEntity>,
     ){}
     
     // READ ALL:
@@ -45,10 +47,53 @@ export class BudgetMonthService {
             const newWeekRemains = 0;
             newBudgetMonth.weekRemains = newWeekRemains;
             await this.budgetMonthRepository.save(newBudgetMonth)
+            // Créer le budget hebdomadaire :
+            // const newRemainingAmount = newMonthRemins;
+            // const newWeekBudget = {
+            //     plannedBudget1: newWeekRemains,
+            //     plannedBudget2: newWeekRemains,
+            //     plannedBudget3: newWeekRemains,
+            //     plannedBudget4: newWeekRemains,
+            //     plannedBudget5: newWeekRemains,
+            //     remainingAmount: newRemainingAmount
+            // }
+            // await this.weekBudgetRepository.save(newWeekBudget)
+            // console.log(newWeekBudget)
         } else {
             const newWeekRemains = Math.trunc(newMonthRemins/5);
             newBudgetMonth.weekRemains = newWeekRemains;
             await this.budgetMonthRepository.save(newBudgetMonth)
+            // Créer le budget hebdomadaire :
+            // const quart = Math.trunc(newWeekRemains/4)
+            // const newWeekBudget = {
+            //     food1: quart,
+            //     food2: quart,
+            //     food3: quart,
+            //     food4: quart,
+            //     food5: quart,
+            //     travel1: quart,
+            //     travel2: quart,
+            //     travel3: quart,
+            //     travel4: quart,
+            //     travel5: quart,
+            //     leisure1: quart,
+            //     leisure2: quart,
+            //     leisure3: quart,
+            //     leisure4: quart,
+            //     leisure5: quart,
+            //     emergency1: quart,
+            //     emergency2: quart,
+            //     emergency3: quart,
+            //     emergency4: quart,
+            //     emergency5: quart,
+            //     plannedBudget1: newWeekRemains,
+            //     plannedBudget2: newWeekRemains,
+            //     plannedBudget3: newWeekRemains,
+            //     plannedBudget4: newWeekRemains,
+            //     plannedBudget5: newWeekRemains,   
+            // }
+            // await this.weekBudgetRepository.save(newWeekBudget)
+            // console.log(newWeekBudget)
         }
             return `Le budget: ${newBudgetMonth.month} ${newBudgetMonth.year} a bien été créé.`
         
@@ -84,4 +129,8 @@ export class BudgetMonthService {
         }
         return budget;
     }
+    // async getWeekBudget(budget){
+    //     const weekBudget = await this.weekBudgetRepository.findOneBy({budgetMonth: budget});
+    //     console.log(weekBudget) ;
+    // }
 }

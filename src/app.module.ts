@@ -11,6 +11,8 @@ import { BudgetMonthModule } from './budget-month/budget-month.module';
 import { BudgetMonthEntity } from './budget-month/entity/budgetMonth.entity';
 import * as dotenv from 'dotenv';
 import { TimestampEntity } from './Generics/timestamp.entity';
+import { WeekBudgetModule } from './week-budget/week-budget.module';
+import { WeekBudgetEntity } from './week-budget/entity/week-budget.entity';
 
 dotenv.config()
 
@@ -23,12 +25,12 @@ dotenv.config()
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [User, GoalEntity, BudgetMonthEntity, TimestampEntity ],
+      entities: [User, GoalEntity, BudgetMonthEntity, TimestampEntity, WeekBudgetEntity ],
       synchronize: true,
     }),
     UserModule, 
     AuthModule, 
-    GoalModule, BudgetMonthModule
+    GoalModule, BudgetMonthModule, WeekBudgetModule
   ],
   controllers: [AppController],
   providers: [AppService],
