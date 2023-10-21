@@ -105,8 +105,29 @@ export class BudgetMonthService {
         await this.budgetMonthRepository.save(newBudget);
         
         const budget = await this.budgetMonthRepository.findOneBy({id: id})
+        // Calculer les entrées, sorites et reste à vivre hebdo mensuel
+        // Calculer le budget mensuel 
+        const {salary, socialAssistance, helpThird, otherCommingIn} = budget;
+        const newMonthBudget = salary + socialAssistance + helpThird + otherCommingIn;
+        budget.monthBudget = newMonthBudget;
+
+        // Calculer les charges mensuels
+        const {plannedBudget1, rent, energyInvoices, insuranceInvoices, telephonesInvoices, otherDebits, otherInvoices} = budget;
+        const newMonthExpenses = rent + energyInvoices + insuranceInvoices + telephonesInvoices + otherDebits + otherInvoices;
+        budget.monthExpenses = newMonthExpenses;
+
+        // Calculer les prévisions mensuels et hebdomadaires
+        const newMonthRemins = newMonthBudget - newMonthExpenses
+        budget.monthRemains = newMonthRemins;
+        const newWeekRemains = Math.trunc(newMonthRemins/5);
+        budget.weekRemains = newWeekRemains;
+        budget.plannedBudget1 = newWeekRemains;
+        budget.plannedBudget2 = newWeekRemains;
+        budget.plannedBudget3 = newWeekRemains;
+        budget.plannedBudget4 = newWeekRemains;
+        budget.plannedBudget5 = newWeekRemains;
         // Calculer la somme dépensée par semaine 
-        const { spentBudget3, spentBudget4, spentBudget5, spentBudget2, spentBudget1, monthRemains, food1, food2, food3, food4, food5, travel1, travel2, travel3, travel4, travel5, leisure1,leisure2, leisure3, leisure4, leisure5,emergency1, emergency2, emergency3, emergency4, emergency5} = budget;
+        const { monthRemains, food1, food2, food3, food4, food5, travel1, travel2, travel3, travel4, travel5, leisure1,leisure2, leisure3, leisure4, leisure5,emergency1, emergency2, emergency3, emergency4, emergency5} = budget;
         // S1
         const newSpentBudget1 = food1 + travel1 + leisure1 + emergency1;
         // S2

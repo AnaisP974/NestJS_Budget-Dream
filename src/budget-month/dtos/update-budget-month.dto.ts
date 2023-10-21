@@ -5,7 +5,6 @@ import { BudgetMonthEnum } from 'src/enum/budget-month.enum';
 export class UpdateBudgetMonthDto {
     @IsOptional()
     @IsEnum(BudgetMonthEnum)
-    @Min(new Date().getFullYear(), { message: 'L\'année ne peut pas être inférieure à l\'année actuelle.' })
     month: string;
 
     @IsOptional()

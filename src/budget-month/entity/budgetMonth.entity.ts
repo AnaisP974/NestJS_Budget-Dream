@@ -254,35 +254,35 @@ export class BudgetMonthEntity extends TimestampEntity {
     nullable: true,
     default: 0,
   })
-  readonly plannedBudget1: number;
+  plannedBudget1: number;
 
   @Column({
     type: "integer",
     nullable: true,
     default: 0,
   })
-  readonly plannedBudget2: number;  
+  plannedBudget2: number;  
   
   @Column({
     type: "integer",
     nullable: true,
     default: 0,
   })
-  readonly plannedBudget3: number;
+  plannedBudget3: number;
 
   @Column({
     type: "integer",
     nullable: true,
     default: 0,
   })
-  readonly plannedBudget4: number;  
+  plannedBudget4: number;  
   
   @Column({
     type: "integer",
     nullable: true,
     default: 0,
   })
-  readonly plannedBudget5: number;
+  plannedBudget5: number;
 
   @Column({
     type: "integer",
