@@ -19,3 +19,17 @@ table {
     border: 1px solid #7A6C7A;
     padding: 30px
   }
+
+  fieldset{
+    padding: 4rem;
+  }
+  span{
+    font-weight: bold;
+    text-align: center;
+  }
+ .danger{
+    color: red;
+  }
+ .success{
+    color: green;
+  }

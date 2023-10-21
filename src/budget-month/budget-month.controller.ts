@@ -7,7 +7,7 @@ import { User } from 'src/user/entity/user.entity';
 
 @Controller('budget-month')
 export class BudgetMonthController {
-    constructor(private readonly budgetMonthService: BudgetMonthService){}
+    constructor(private budgetMonthService: BudgetMonthService){}
 
     // READ ALL
     @Get()
@@ -31,7 +31,8 @@ export class BudgetMonthController {
     }
     
     // UPDATE one
-    @Put('update/:id')
+    @Post('update/:id')
+    @Redirect('/budget-month')
     async updateBudgetMonth(@Body() newBudget: UpdateBudgetMonthDto, @Param('id', ParseIntPipe) id: number): Promise<BudgetMonthEntity>{
         return await this.budgetMonthService.updateBudgetMonth(id, newBudget);
     }

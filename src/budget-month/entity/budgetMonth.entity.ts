@@ -1,7 +1,6 @@
 import { TimestampEntity } from 'src/Generics/timestamp.entity';
 import { BudgetMonthEnum } from 'src/enum/budget-month.enum';
-import { WeekBudgetEntity } from 'src/week-budget/entity/week-budget.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class BudgetMonthEntity extends TimestampEntity {
@@ -106,7 +105,231 @@ export class BudgetMonthEntity extends TimestampEntity {
   })
   weekRemains: number;
 
-  @OneToOne(() => WeekBudgetEntity)
-  @JoinColumn()
-  weekBudget: WeekBudgetEntity;
+  // @OneToOne(() => WeekBudgetEntity)
+  // @JoinColumn()
+  // weekBudget: WeekBudgetEntity;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly food1: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly food2: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly food3: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly food4: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly food5: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly travel1: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly travel2: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly travel3: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0
+  })
+  readonly travel4: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0
+  })
+  readonly travel5: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly leisure1: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly leisure2: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly leisure3: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly leisure4: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly leisure5: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly emergency1: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly emergency2: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly emergency3: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0
+  })
+  readonly emergency4: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly emergency5: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly plannedBudget1: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly plannedBudget2: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly plannedBudget3: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly plannedBudget4: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  readonly plannedBudget5: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  spentBudget1: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  spentBudget2: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  spentBudget3: number;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  spentBudget4: number;  
+  
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  spentBudget5: number;
+
+  @Column({
+    type: "boolean",
+    nullable: true,
+  })
+  isWinning: boolean;
+
+  @Column({
+    type: "integer",
+    nullable: true,
+    default: 0,
+  })
+  remainingAmount: number;
+
 }
