@@ -1,6 +1,6 @@
 /* FORMULAIRES */
 
-form{
+/* form{
     padding: 20px;
     max-width: 400px;
 }
@@ -11,7 +11,7 @@ form label, input, textarea{
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
-}
+} */
 
 #profile a{
     text-decoration: none;

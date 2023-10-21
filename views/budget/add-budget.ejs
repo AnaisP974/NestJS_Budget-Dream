@@ -1,87 +1,230 @@
-<%- include("../partials/header", {title: "Nouveau budget", style: "profile"}) %>
+<%- include("../partials/header", {title: "Nouveau budget", style: "budget"})
+%>
 
 <header>
-    <%- include("../partials/banner", {link:"/auth/logout", button: "Deconnexion", type:"submit"}) %>
+  <%- include("../partials/banner", {link:"/auth/logout", button: "Deconnexion",
+  type:"submit"}) %>
 </header>
 
 <main>
-    
+    <div class="separator"></div>
     
     <div class="space-between">
         <h2>Nouveau budget mensuel :</h2>
-        <a href="">Annuler</a>
+        <a href="/budget-month">Annuler</a>
     </div>
 
     <div class="separator"></div>
 
     <div class="center">
         <form action="/budget-month/add" method="post">
-            <h3>Budget :</h3>
-            <label for="month">Mois :</label>
-            <select name="month" id="month">
-                <option value="">--Choisir le mois--</option>
-                <option value="Janvier">Janvier</option>
-                <option value="Février">Février</option>
-                <option value="Mars">Mars</option>
-                <option value="Avril">Avril</option>
-                <option value="Mai">Mai</option>
-                <option value="Juin">Juin</option>
-                <option value="Juillet">Juillet</option>
-                <option value="Août">Août</option>
-                <option value="Septembre">Septembre</option>
-                <option value="Octobre">Octobre</option>
-                <option value="Novembre">Novembre</option>
-                <option value="Décembre">Décembre</option>
-            </select>
+         
 
-            <label for="year">Année :</label>
-            <select name="year" id="year">
-                <option value="">--Choisir l'année--</option>
-                <option value="2023">2023</option>
-                <option value="2024">2024</option>
-                <option value="2025">2025</option>
-                <option value="2026">2026</option>
-                <option value="2026">2026</option>
-                <option value="2027">2027</option>
-                <option value="2028">2028</option>
-                <option value="2029">2029</option>
-                <option value="2030">2030</option>
-                <option value="2031">2031</option>
-                <option value="2032">2032</option>
-                <option value="2033">2033</option>
-            </select>
-            
-            <h3>Mes entrées d'argent :</h3>
-            <%- include("../components/input", {type : "number", name: "salary", label: "Salaire"}) %>
-            <%- include("../components/input", {type : "number", name: "socialAssistance", label: "Aides Sociales"}) %>
-            <%- include("../components/input", {type : "number", name: "helpThird", label: "Aide d'un tiers"}) %>
-            <%- include("../components/input", {type : "number", name: "otherCommingIn", label: "Autre entrée d'argent"}) %>
-            
-            <h3>Mes charges :</h3>
-            <%- include("../components/input", {type : "number", name: "rent", label: "Loyer"}) %>
-            <%- include("../components/input", {type : "number", name: "energyInvoices", label: "Eau, Gaz, Electricité"}) %>
-            <%- include("../components/input", {type : "number", name: "insuranceInvoices", label: "Assurences (maison, auto, moto...)"}) %>
-            <%- include("../components/input", {type : "number", name: "telephonesInvoices", label: "Factures téléphone (mobile, fixe...)"}) %>
-            <%- include("../components/input", {type : "number", name: "otherDebits", label: "Autres prélèvements"}) %>
-            <%- include("../components/input", {type : "number", name: "otherInvoices", label: "Autres factures"}) %>
-        
-            <div class="separator"></div>
-            
-            <div class="btn-center">
-            
-                <button type="submit">Enregistrer</button>
-            
-            </div>
-        
+                <table>
+                <caption>
+                    "Je définis le mois sur lequel je souhaite travailler."
+                </caption>
+                <thead>
+                    <tr>
+                    <th colspan="2"><p class="center">Mois :</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td><label for="month">Mois :</label></td>
+                    <td>
+                        <select name="month" id="month">
+                        <option value="">--Choisir le mois--</option>
+                        <option value="Janvier">Janvier</option>
+                        <option value="Février">Février</option>
+                        <option value="Mars">Mars</option>
+                        <option value="Avril">Avril</option>
+                        <option value="Mai">Mai</option>
+                        <option value="Juin">Juin</option>
+                        <option value="Juillet">Juillet</option>
+                        <option value="Août">Août</option>
+                        <option value="Septembre">Septembre</option>
+                        <option value="Octobre">Octobre</option>
+                        <option value="Novembre">Novembre</option>
+                        <option value="Décembre">Décembre</option>
+                        </select>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td><label for="year">Année :</label></td>
+                    <td>
+                        <select name="year" id="year">
+                        <option value="">--Choisir l'année--</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                        <option value="2033">2033</option>
+                        </select>
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+
+                <div class="separator_section"></div>
+                
+                <table>
+                <caption>
+                    "Je définis toutes mes entrées d'argent pour le mois."
+                </caption>
+                <thead>
+                    <tr>
+                    <th colspan="2"><p class="center">ENTREES D'ARGENT :</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td><label for="salary">Salaire :</label></td>
+                    <td>
+                        <input type="number" name="salary" id="salary" value="0" />
+                    </td>
+                    </tr>
+                    <tr>
+                    <td><label for="socialAssistance">Aides Sociales :</label></td>
+                    <td>
+                        <input
+                        type="number"
+                        name="socialAssistance"
+                        id="socialAssistance"
+                        value="0"
+                        />
+                    </td>
+                    </tr>
+                    <tr>
+                    <td><label for="helpThird">Aide d'un tiers :</label></td>
+                    <td>
+                        <input
+                        type="number"
+                        name="helpThird"
+                        id="helpThird"
+                        value="0"
+                        />
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                        <label for="otherCommingIn">Autre entrée d'argent :</label>
+                    </td>
+                    <td>
+                        <input
+                        type="number"
+                        name="otherCommingIn"
+                        id="otherCommingIn"
+                        value="0"
+                        />
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+
+                <div class="separator_section"></div>
+
+                <table>
+                    <caption>
+                        "Je définis toutes mes charges du mois."
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th colspan="2"><p class="center">SORTIES D'ARGENT :</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td><label for="rent">Loyer / Crédit Maison :</label></td>
+                        <td><input type="number" name="rent" id="rent" value="0" /></td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <label for="energyInvoices">Eau, Gaz, Electricité :</label>
+                        </td>
+                        <td>
+                            <input
+                            type="number"
+                            name="energyInvoices"
+                            id="energyInvoices"
+                            value="0"
+                            />
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <label for="insuranceInvoices"
+                            >Assurences (maison, auto, moto...) :</label
+                            >
+                        </td>
+                        <td>
+                            <input
+                            type="number"
+                            name="insuranceInvoices"
+                            id="insuranceInvoices"
+                            value="0"
+                            />
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <label for="telephonesInvoices"
+                            >Factures téléphone (mobile, fixe...) :</label
+                            >
+                        </td>
+                        <td>
+                            <input
+                            type="number"
+                            name="telephonesInvoices"
+                            id="telephonesInvoices"
+                            value="0"
+                            />
+                        </td>
+                        </tr>
+                        <tr>
+                        <td><label for="otherDebits">Autres prélèvements :</label></td>
+                        <td>
+                            <input
+                            type="number"
+                            name="otherDebits"
+                            id="otherDebits"
+                            value="0"
+                            />
+                        </td>
+                        </tr>
+                        <tr>
+                        <td><label for="otherInvoices">Autres factures :</label></td>
+                        <td>
+                            <input
+                            type="number"
+                            name="otherInvoices"
+                            id="otherInvoices"
+                            value="0"
+                            />
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="separator"></div>
+                
+                <div class="center">
+                    <button type="submit">Enregistrer</button>
+                </div>
+           
         </form>
-    
     </div>
 
+  <a href="/budget-month">< Retour</a>
 
-    <a href="/user">< Retour</a>
-
-
-    <div class="separator_section"></div>
+  <div class="separator_section"></div>
 </main>
 
 <%- include("../partials/footer") %>
