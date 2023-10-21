@@ -6,10 +6,16 @@
 
 <main>
     <% if(locals.register) { %>
-        <div class="center">
-            <p><%= locals.message %></p>
+    <label>
+        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+        <div class="alert notice">
+          <span class="alertClose">X</span>
+          <span class="alertText"><%= locals.message %>
+          <br class="clear"/></span>
         </div>
+    </label>
     <% } %>
+    <div class="separator"></div>
     
     <div class="space-between">
         <h2>Mes budgets mensuels :</h2>
@@ -32,6 +38,8 @@
                             <p>Reste à vivre hebdomadaires: <%= budget.weekRemains %> €</p>
 
                             <div class="separator"></div>
+                            <h4 class="center <% if (budget.remainingAmount < 0) { %>danger<% } else { %>success<% } %>"><% if( budget.remainingAmount >= 0){ %> GAIN + <% } else { %> PERTE
+                                <% } %> <%= budget.remainingAmount %>€</h4>
                             
                             <div class="space-between"> 
                                 <!-- <a href="/budget-month/update/<%= budget.id %>"><i class="bi bi-pen"></i></a> -->

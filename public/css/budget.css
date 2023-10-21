@@ -1,7 +1,8 @@
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    min-width: 80%;
+    width: 80%;
+    font-size: 0.9rem;
   }
   
   td, th {
@@ -13,6 +14,12 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+  form{
+    width: 100%;
+  }
+form input{
+  width: 40px;
+}
 
   .forecasts{
     min-width: 300px;
@@ -21,15 +28,31 @@ table {
   }
 
   fieldset{
-    padding: 4rem;
+    padding: 1rem;
   }
   span{
     font-weight: bold;
     text-align: center;
   }
- .danger{
-    color: red;
+ 
+  @media screen and (width >= 768px) {
+    form input{
+      width: 60px;
+    }
+    table{
+      font-size: 1rem;
+    }
+}
+
+@media screen and (width >= 992px) {
+  form input{
+    width: 90px;
   }
- .success{
-    color: green;
+  table{
+    font-size: 1rem;
+    width: 800px;
   }
+  fieldset{
+    padding: 4rem;
+  }
+}

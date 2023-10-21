@@ -11,6 +11,13 @@
     justify-content: space-between;
 }
 
+.danger{
+    color: red;
+  }
+ .success{
+    color: green;
+  }
+
 
 .btn-center, .center{
     display: flex;
@@ -26,6 +33,60 @@ button:hover{
     background-color: rgb(143, 171, 211);
     color: black;
 }
+
+/* START ALERT  */
+.alert {
+    position: relative;
+    top: 10;
+    left: 0;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+    line-height: 1.8;
+    border-radius: 5px;
+    cursor: hand;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 10px auto;
+  }
+  .alertCheckbox {
+    display: none;
+  }
+  
+:checked + .alert {
+    display: none;
+  }
+  
+  .alertText {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    color:#7A6C7A;
+  }
+  
+  .alertClose {
+    float: right;
+    /* padding-top: 5px; */
+    font-size: 15px;
+  }
+  
+.clear {
+    clear: both;
+  }
+  
+  .notice {
+    background-color: rgb(213, 227, 244);
+    border: 1px solid #DEE;
+    color: #9AA;
+  }
+
+/* END ALERT  */
+
+
 /* START BANNER */
 .banner{
     width: 100%;

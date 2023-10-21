@@ -6,220 +6,235 @@
 </header>
 
 <main>
-    <div class="separator"></div>
-    
-    <div class="space-between">
-        <h2>Modifier les entrées et sorties de <%= budget.month %> <%= budget.year %> :</h2>
-        <a href="/budget-month">Annuler</a>
-    </div>
+  <div class="separator"></div>
 
-    <div class="separator"></div>
+  <div class="space-between">
+    <h2>
+      Modifier les entrées et sorties de <%= budget.month %> <%= budget.year %>
+      :
+    </h2>
+    <a href="/budget-month">Annuler</a>
+  </div>
 
+  <div class="separator"></div>
+
+  <form action="/budget-month/update/<%= budget.id %>" method="post">
     <div class="center">
-        <form action="/budget-month/update/<%= budget.id %>" method="post">
-         
 
-                <table>
-                <caption>
-                    "Je définis le mois sur lequel je souhaite travailler."
-                </caption>
-                <thead>
-                    <tr>
-                    <th colspan="2"><p class="center">Mois :</p></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td><label for="month">Mois :</label></td>
-                    <td>
-                        <select name="month" id="month">
-                        <option value="<%= budget.month %>"><%= budget.month %></option>
-                        <option value="Janvier">Janvier</option>
-                        <option value="Février">Février</option>
-                        <option value="Mars">Mars</option>
-                        <option value="Avril">Avril</option>
-                        <option value="Mai">Mai</option>
-                        <option value="Juin">Juin</option>
-                        <option value="Juillet">Juillet</option>
-                        <option value="Août">Août</option>
-                        <option value="Septembre">Septembre</option>
-                        <option value="Octobre">Octobre</option>
-                        <option value="Novembre">Novembre</option>
-                        <option value="Décembre">Décembre</option>
-                        </select>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td><label for="year">Année :</label></td>
-                    <td>
-                        <select name="year" id="year">
-                        <option value="<%= budget.year %>"><%= budget.year %></option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                        <option value="2026">2026</option>
-                        <option value="2027">2027</option>
-                        <option value="2028">2028</option>
-                        <option value="2029">2029</option>
-                        <option value="2030">2030</option>
-                        <option value="2031">2031</option>
-                        <option value="2032">2032</option>
-                        <option value="2033">2033</option>
-                        </select>
-                    </td>
-                    </tr>
-                </tbody>
-                </table>
+            <table>
+              <caption>
+                "Je définis le mois sur lequel je souhaite travailler."
+              </caption>
+              <thead>
+                <tr>
+                  <th colspan="2"><p class="center">Mois :</p></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><label for="month">Mois :</label></td>
+                  <td>
+                    <select name="month" id="month">
+                      <option value="<%= budget.month %>"><%= budget.month %></option>
+                      <option value="Janvier">Janvier</option>
+                      <option value="Février">Février</option>
+                      <option value="Mars">Mars</option>
+                      <option value="Avril">Avril</option>
+                      <option value="Mai">Mai</option>
+                      <option value="Juin">Juin</option>
+                      <option value="Juillet">Juillet</option>
+                      <option value="Août">Août</option>
+                      <option value="Septembre">Septembre</option>
+                      <option value="Octobre">Octobre</option>
+                      <option value="Novembre">Novembre</option>
+                      <option value="Décembre">Décembre</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="year">Année :</label></td>
+                  <td>
+                    <select name="year" id="year">
+                      <option value="<%= budget.year %>"><%= budget.year %></option>
+                      <option value="2023">2023</option>
+                      <option value="2024">2024</option>
+                      <option value="2025">2025</option>
+                      <option value="2026">2026</option>
+                      <option value="2026">2026</option>
+                      <option value="2027">2027</option>
+                      <option value="2028">2028</option>
+                      <option value="2029">2029</option>
+                      <option value="2030">2030</option>
+                      <option value="2031">2031</option>
+                      <option value="2032">2032</option>
+                      <option value="2033">2033</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      
+            <div class="separator_section"></div>
+      
+            <table>
+              <caption>
+                "Je définis toutes mes entrées d'argent pour le mois."
+              </caption>
+              <thead>
+                <tr>
+                  <th colspan="2"><p class="center">ENTREES D'ARGENT :</p></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><label for="salary">Salaire :</label></td>
+                  <td>
+                    <input
+                      type="number"
+                      name="salary"
+                      id="salary"
+                      value="<%= budget.salary %>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="socialAssistance">Aides Sociales :</label></td>
+                  <td>
+                    <input
+                      type="number"
+                      name="socialAssistance"
+                      id="socialAssistance"
+                      value="<%= budget.socialAssistance %>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="helpThird">Aide d'un tiers :</label></td>
+                  <td>
+                    <input
+                      type="number"
+                      name="helpThird"
+                      id="helpThird"
+                      value="<%= budget.helpThird %>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="otherCommingIn">Autre entrée d'argent :</label>
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      name="otherCommingIn"
+                      id="otherCommingIn"
+                      value="<%= budget.otherCommingIn %>"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      
+            <div class="separator_section"></div>
+      
+            <table>
+              <caption>
+                "Je définis toutes mes charges du mois."
+              </caption>
+              <thead>
+                <tr>
+                  <th colspan="2"><p class="center">SORTIES D'ARGENT :</p></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><label for="rent">Loyer / Crédit Maison :</label></td>
+                  <td>
+                    <input
+                      type="number"
+                      name="rent"
+                      id="rent"
+                      value="<%= budget.rent %>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="energyInvoices">Eau, Gaz, Electricité :</label>
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      name="energyInvoices"
+                      id="energyInvoices"
+                      value="<%= budget.energyInvoices %>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="insuranceInvoices"
+                      >Assurences (maison, auto, moto...) :</label
+                    >
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      name="insuranceInvoices"
+                      id="insuranceInvoices"
+                      value="<%= budget.insuranceInvoices %>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="telephonesInvoices"
+                      >Factures téléphone (mobile, fixe...) :</label
+                    >
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      name="telephonesInvoices"
+                      id="telephonesInvoices"
+                      value="<%= budget.telephonesInvoices %>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="otherDebits">Autres prélèvements :</label></td>
+                  <td>
+                    <input
+                      type="number"
+                      name="otherDebits"
+                      id="otherDebits"
+                      value="<%= budget.otherDebits %>"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="otherInvoices">Autres factures :</label></td>
+                  <td>
+                    <input
+                      type="number"
+                      name="otherInvoices"
+                      id="otherInvoices"
+                      value="<%= budget.otherInvoices %>"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      
+            <div class="separator"></div>
+      
+            <div class="center">
+              <button type="submit">Enregistrer</button>
+            </div>
 
-                <div class="separator_section"></div>
-                
-                <table>
-                <caption>
-                    "Je définis toutes mes entrées d'argent pour le mois."
-                </caption>
-                <thead>
-                    <tr>
-                    <th colspan="2"><p class="center">ENTREES D'ARGENT :</p></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td><label for="salary">Salaire :</label></td>
-                    <td>
-                        <input type="number" name="salary" id="salary" value="<%= budget.salary %>" />
-                    </td>
-                    </tr>
-                    <tr>
-                    <td><label for="socialAssistance">Aides Sociales :</label></td>
-                    <td>
-                        <input
-                        type="number"
-                        name="socialAssistance"
-                        id="socialAssistance"
-                        value="<%= budget.socialAssistance %>"
-                        />
-                    </td>
-                    </tr>
-                    <tr>
-                    <td><label for="helpThird">Aide d'un tiers :</label></td>
-                    <td>
-                        <input
-                        type="number"
-                        name="helpThird"
-                        id="helpThird"
-                        value="<%= budget.helpThird %>"
-                        />
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>
-                        <label for="otherCommingIn">Autre entrée d'argent :</label>
-                    </td>
-                    <td>
-                        <input
-                        type="number"
-                        name="otherCommingIn"
-                        id="otherCommingIn"
-                        value="<%= budget.otherCommingIn %>"
-                        />
-                    </td>
-                    </tr>
-                </tbody>
-                </table>
 
-                <div class="separator_section"></div>
-
-                <table>
-                    <caption>
-                        "Je définis toutes mes charges du mois."
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th colspan="2"><p class="center">SORTIES D'ARGENT :</p></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td><label for="rent">Loyer / Crédit Maison :</label></td>
-                        <td><input type="number" name="rent" id="rent" value="<%= budget.rent %>" /></td>
-                        </tr>
-                        <tr>
-                        <td>
-                            <label for="energyInvoices">Eau, Gaz, Electricité :</label>
-                        </td>
-                        <td>
-                            <input
-                            type="number"
-                            name="energyInvoices"
-                            id="energyInvoices"
-                            value="<%= budget.energyInvoices %>"
-                            />
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-                            <label for="insuranceInvoices"
-                            >Assurences (maison, auto, moto...) :</label
-                            >
-                        </td>
-                        <td>
-                            <input
-                            type="number"
-                            name="insuranceInvoices"
-                            id="insuranceInvoices"
-                            value="<%= budget.insuranceInvoices %>"
-                            />
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-                            <label for="telephonesInvoices"
-                            >Factures téléphone (mobile, fixe...) :</label
-                            >
-                        </td>
-                        <td>
-                            <input
-                            type="number"
-                            name="telephonesInvoices"
-                            id="telephonesInvoices"
-                            value="<%= budget.telephonesInvoices %>"
-                            />
-                        </td>
-                        </tr>
-                        <tr>
-                        <td><label for="otherDebits">Autres prélèvements :</label></td>
-                        <td>
-                            <input
-                            type="number"
-                            name="otherDebits"
-                            id="otherDebits"
-                            value="<%= budget.otherDebits %>"
-                            />
-                        </td>
-                        </tr>
-                        <tr>
-                        <td><label for="otherInvoices">Autres factures :</label></td>
-                        <td>
-                            <input
-                            type="number"
-                            name="otherInvoices"
-                            id="otherInvoices"
-                            value="<%= budget.otherInvoices %>"
-                            />
-                        </td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="separator"></div>
-                
-                <div class="center">
-                    <button type="submit">Enregistrer</button>
-                </div>
-           
-        </form>
     </div>
+  </form>
 
   <a href="/budget-month">< Retour</a>
 
