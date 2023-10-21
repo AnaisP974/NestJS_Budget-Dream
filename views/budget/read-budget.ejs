@@ -1,5 +1,4 @@
-<%- include("../partials/header", {title: "Budget Mensuel", style: "budget"})
-%>
+<%- include("../partials/header", {title: "Budget Mensuel", style: "budget"}) %>
 
 <header>
   <%- include("../partials/banner", {link:"/auth/logout", button: "Deconnexion",
@@ -7,11 +6,13 @@
 </header>
 
 <main>
-    <div class="separator"></div>
+  <div class="separator"></div>
 
   <div class="space-between">
     <h2>Budget <%= budget.month %> <%= budget.year %>:</h2>
-    <a href="/budget-month/update/<%= budget.id %>">Modifier les entrées et sorties</a>
+    <a href="/budget-month/update/<%= budget.id %>"
+      >Modifier les entrées et sorties</a
+    >
   </div>
 
   <div class="separator"></div>
@@ -53,7 +54,7 @@
     </table>
 
     <div class="separator_section"></div>
-    
+
     <table>
       <caption>
         "Je définis toutes mes charges du mois."
@@ -81,13 +82,13 @@
           <td><%= budget.telephonesInvoices %> €</td>
         </tr>
         <tr>
-            <td>Autres prélévements :</td>
-            <td><%= budget.otherDebits %> €</td>
-          </tr>
-          <tr>
-            <td>Autres factures :</td>
-            <td><%= budget.otherInvoices %> €</td>
-          </tr>
+          <td>Autres prélévements :</td>
+          <td><%= budget.otherDebits %> €</td>
+        </tr>
+        <tr>
+          <td>Autres factures :</td>
+          <td><%= budget.otherInvoices %> €</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
@@ -96,13 +97,13 @@
         </tr>
       </tfoot>
     </table>
-    
+
     <div class="separator_section"></div>
 
     <div class="forecasts">
-        <h3>Prévisions :</h3>
-        <p>Reste à vivre mensuel de : <%= budget.monthRemains %> €.</p>
-        <p>Reste à vivre hebdomadaire de : <%= budget.weekRemains %> €.</p>
+      <h3>Prévisions :</h3>
+      <p>Reste à vivre mensuel de : <%= budget.monthRemains %> €.</p>
+      <p>Reste à vivre hebdomadaire de : <%= budget.weekRemains %> €.</p>
     </div>
 
     <div class="separator_section"></div>
@@ -117,11 +118,21 @@
         </tr>
         <tr>
           <th>Intitulé</th>
-          <th>S.1 (du 01 au 07)</th>
-          <th>S.2 (du 08 au 14)</th>
-          <th>S.3 (du 15 au 21)</th>
-          <th>S.4 (du 22 au 28)</th>
-          <th>S.5 (29 et +)</th>
+          <th title="(du 01 au 07 <%= budget.month %> <%= budget.year %>)">
+            S.1
+          </th>
+          <th title="(du 08 au 14 <%= budget.month %> <%= budget.year %>)">
+            S.2
+          </th>
+          <th title="(du 15 au 21 <%= budget.month %> <%= budget.year %>)">
+            S.3
+          </th>
+          <th title="(du 22 au 28 <%= budget.month %> <%= budget.year %>)">
+            S.4
+          </th>
+          <th title="(du 29 et + <%= budget.month %> <%= budget.year %>)">
+            S.5
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -160,55 +171,55 @@
         <tr>
           <td>Total somme prévue :</td>
           <td>
-            <span>
-              <%= budget.plannedBudget1 %> €
-            </span>
+            <span> <%= budget.plannedBudget1 %> € </span>
           </td>
           <td>
-            <span>
-              <%= budget.plannedBudget2 %> €
-            </span>
+            <span> <%= budget.plannedBudget2 %> € </span>
           </td>
           <td>
-            <span>
-              <%= budget.plannedBudget3 %> €
-            </span>
+            <span> <%= budget.plannedBudget3 %> € </span>
           </td>
           <td>
-            <span>
-              <%= budget.plannedBudget4 %> €
-            </span>
+            <span> <%= budget.plannedBudget4 %> € </span>
           </td>
           <td>
-            <span>
-              <%= budget.plannedBudget5 %> €
-            </span>
+            <span> <%= budget.plannedBudget5 %> € </span>
           </td>
         </tr>
         <tr>
           <td>Total somme dépensée :</td>
           <td>
-            <span class="<% if (budget.spentBudget1 > budget.plannedBudget1) { %>danger<% } else { %>success<% } %>">
+            <span
+              class="<% if (budget.spentBudget1 > budget.plannedBudget1) { %>danger<% } else { %>success<% } %>"
+            >
               <%= budget.spentBudget1 %> €
             </span>
           </td>
           <td>
-            <span class="<% if (budget.spentBudget2 > budget.plannedBudget2) { %>danger<% } else { %>success<% } %>">
+            <span
+              class="<% if (budget.spentBudget2 > budget.plannedBudget2) { %>danger<% } else { %>success<% } %>"
+            >
               <%= budget.spentBudget2 %> €
             </span>
           </td>
           <td>
-            <span class="<% if (budget.spentBudget3 > budget.plannedBudget3) { %>danger<% } else { %>success<% } %>">
+            <span
+              class="<% if (budget.spentBudget3 > budget.plannedBudget3) { %>danger<% } else { %>success<% } %>"
+            >
               <%= budget.spentBudget3 %> €
             </span>
           </td>
           <td>
-            <span class="<% if (budget.spentBudget4 > budget.plannedBudget4) { %>danger<% } else { %>success<% } %>">
+            <span
+              class="<% if (budget.spentBudget4 > budget.plannedBudget4) { %>danger<% } else { %>success<% } %>"
+            >
               <%= budget.spentBudget4 %> €
             </span>
           </td>
           <td>
-            <span class="<% if (budget.spentBudget5 > budget.plannedBudget5) { %>danger<% } else { %>success<% } %>">
+            <span
+              class="<% if (budget.spentBudget5 > budget.plannedBudget5) { %>danger<% } else { %>success<% } %>"
+            >
               <%= budget.spentBudget5 %> €
             </span>
           </td>
@@ -217,92 +228,281 @@
       <tfoot>
         <tr>
           <td>Résultat mensuel :</td>
-          <td colspan="5"> 
-            <% if( budget.remainingAmount > 0){ %>
-              GAIN + 
-            <% } else { %>
-              PERTE 
-            <% } %>
-            <%= budget.remainingAmount %> €
-          
+          <td colspan="5">
+            <% if( budget.remainingAmount >= 0){ %> GAIN + <% } else { %> PERTE
+            <% } %> <%= budget.remainingAmount %> €
           </td>
         </tr>
       </tfoot>
     </table>
 
     <div class="separator_section"></div>
-    
+
     <form action="/budget-month/update/<%= budget.id %>" method="post">
       <fieldset>
         <legend>Gérer mon budget hebdomadaire :</legend>
         <table>
-            <caption>
-              "Je réalise le suivi de mes dépenses chaque semaine."
-            </caption>
-            <thead>
-              <tr>
-                <th colspan="6"><p class="center">MODIFIER LE BUDGET HEBDOMADAIRE :</p></th>
-              </tr>
-              <tr>
-                <th>Intitulé</th>
-                <th>S.1</th>
-                <th>S.2</th>
-                <th>S.3</th>
-                <th>S.4</th>
-                <th>S.5</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><label for="food1 food2 food3 food4 food5">Courses/Nourriture</label></td>
-                <td><input type="number" value="<%= budget.food1 %>" name="food1" id="food1"> €</td>
-                <td><input type="number" value="<%= budget.food2 %>" name="food2" id="food2"> €</td>
-                <td><input type="number" value="<%= budget.food3 %>" name="food3" id="food3"> €</td>
-                <td><input type="number" value="<%= budget.food4 %>" name="food4" id="food4"> €</td>
-                <td><input type="number" value="<%= budget.food5 %>" name="food5" id="food5"> €</td>
-              </tr>
-              <tr>
-                <td><label for="travel1 travel2 travel3 travel4 travel5">Déplacements (Essence/Bus)</label></td>
-                <td><input type="number" value="<%= budget.travel1 %>" name="travel1" id="travel1"> €</td>
-                <td><input type="number" value="<%= budget.travel2 %>" name="travel2" id="travel2"> €</td>
-                <td><input type="number" value="<%= budget.travel3 %>" name="travel3" id="travel3"> €</td>
-                <td><input type="number" value="<%= budget.travel4 %>" name="travel4" id="travel4"> €</td>
-                <td><input type="number" value="<%= budget.travel5 %>" name="travel5" id="travel5"> €</td>
-              </tr>
-              <tr>
-                <td><label for="leisure1 leisure2 leisure3 leisure4 leisure5">Loisirs/Autre (shopping, restaurant, sorties)</label></td>
-                <td><input type="number" value="<%= budget.leisure1 %>" name="leisure1" id="leisure1"> €</td>
-                <td><input type="number" value="<%= budget.leisure2 %>" name="leisure2" id="leisure2"> €</td>
-                <td><input type="number" value="<%= budget.leisure3 %>" name="leisure3" id="leisure3"> €</td>
-                <td><input type="number" value="<%= budget.leisure4 %>" name="leisure4" id="leisure4"> €</td>
-                <td><input type="number" value="<%= budget.leisure5 %>" name="leisure5" id="leisure5"> €</td>
-              </tr>
-              <tr>
-                <td><label for="emergency1 emergency2 emergency3 emergency4 emergency5">Budget de secours (en cas d'urgence, imprévu)</label></td>
-                <td><input type="number" value="<%= budget.emergency1 %>" name="emergency1" id="emergency1"> €</td>
-                <td><input type="number" value="<%= budget.emergency2 %>" name="emergency2" id="emergency2"> €</td>
-                <td><input type="number" value="<%= budget.emergency3 %>" name="emergency3" id="emergency3"> €</td>
-                <td><input type="number" value="<%= budget.emergency4 %>" name="emergency4" id="emergency4"> €</td>
-                <td><input type="number" value="<%= budget.emergency5 %>" name="emergency5" id="emergency5"> €</td>
-              </tr>
-              
-              
-            <tfoot>
-              <tr>
-                <td><label for="plannedBudget1 plannedBudget2 plannedBudget3 plannedBudget4 plannedBudget5">Total somme prévue :</label></td>
-                <td><%= budget.plannedBudget1 %> €</td>
-                <td><%= budget.plannedBudget2 %> €</td>
-                <td><%= budget.plannedBudget3 %> €</td>
-                <td><%= budget.plannedBudget4 %> €</td>
-                <td><%= budget.plannedBudget5 %> €</td>
-              </tr>
-            </tfoot>
-          </table>
-          <div class="separator"></div>
-          <div class="center">
-            <button type="submit">Enregistrer</button>
-          </div>
-        </fieldset>
+          <caption>
+            "Je réalise le suivi de mes dépenses chaque semaine."
+          </caption>
+          <thead>
+            <tr>
+              <th colspan="6">
+                <p class="center">MODIFIER LE BUDGET HEBDOMADAIRE :</p>
+              </th>
+            </tr>
+            <tr>
+              <th>Intitulé</th>
+              <th title="(du 01 au 07 <%= budget.month %> <%= budget.year %>)">
+                S.1
+              </th>
+              <th title="(du 08 au 14 <%= budget.month %> <%= budget.year %>)">
+                S.2
+              </th>
+              <th title="(du 15 au 21 <%= budget.month %> <%= budget.year %>)">
+                S.3
+              </th>
+              <th title="(du 22 au 28 <%= budget.month %> <%= budget.year %>)">
+                S.4
+              </th>
+              <th title="(du 29 et + <%= budget.month %> <%= budget.year %>)">
+                S.5
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <label for="food1 food2 food3 food4 food5"
+                  >Courses/Nourriture</label
+                >
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.food1 %>"
+                  name="food1"
+                  id="food1"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.food2 %>"
+                  name="food2"
+                  id="food2"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.food3 %>"
+                  name="food3"
+                  id="food3"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.food4 %>"
+                  name="food4"
+                  id="food4"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.food5 %>"
+                  name="food5"
+                  id="food5"
+                />
+                €
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="travel1 travel2 travel3 travel4 travel5"
+                  >Déplacements (Essence/Bus)</label
+                >
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.travel1 %>"
+                  name="travel1"
+                  id="travel1"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.travel2 %>"
+                  name="travel2"
+                  id="travel2"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.travel3 %>"
+                  name="travel3"
+                  id="travel3"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.travel4 %>"
+                  name="travel4"
+                  id="travel4"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.travel5 %>"
+                  name="travel5"
+                  id="travel5"
+                />
+                €
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="leisure1 leisure2 leisure3 leisure4 leisure5"
+                  >Loisirs/Autre (shopping, restaurant, sorties)</label
+                >
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.leisure1 %>"
+                  name="leisure1"
+                  id="leisure1"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.leisure2 %>"
+                  name="leisure2"
+                  id="leisure2"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.leisure3 %>"
+                  name="leisure3"
+                  id="leisure3"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.leisure4 %>"
+                  name="leisure4"
+                  id="leisure4"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.leisure5 %>"
+                  name="leisure5"
+                  id="leisure5"
+                />
+                €
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label
+                  for="emergency1 emergency2 emergency3 emergency4 emergency5"
+                  >Budget de secours (en cas d'urgence, imprévu)</label
+                >
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.emergency1 %>"
+                  name="emergency1"
+                  id="emergency1"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.emergency2 %>"
+                  name="emergency2"
+                  id="emergency2"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.emergency3 %>"
+                  name="emergency3"
+                  id="emergency3"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.emergency4 %>"
+                  name="emergency4"
+                  id="emergency4"
+                />
+                €
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value="<%= budget.emergency5 %>"
+                  name="emergency5"
+                  id="emergency5"
+                />
+                €
+              </td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td>
+                <label
+                  for="plannedBudget1 plannedBudget2 plannedBudget3 plannedBudget4 plannedBudget5"
+                  >Total somme prévue :</label
+                >
+              </td>
+              <td><%= budget.plannedBudget1 %> €</td>
+              <td><%= budget.plannedBudget2 %> €</td>
+              <td><%= budget.plannedBudget3 %> €</td>
+              <td><%= budget.plannedBudget4 %> €</td>
+              <td><%= budget.plannedBudget5 %> €</td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="separator"></div>
+        <div class="center">
+          <button type="submit">Enregistrer</button>
+        </div>
+      </fieldset>
     </form>
   </div>
 

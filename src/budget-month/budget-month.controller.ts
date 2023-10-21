@@ -31,6 +31,13 @@ export class BudgetMonthController {
     }
     
     // UPDATE one
+    @Get('update/:id')
+    @Render("budget/update-budget")
+    async updateBudgetById(@Param('id', ParseIntPipe) id: number){
+        const budget = await this.budgetMonthService.getBudgetMonthById(id);
+        return  {budget}; 
+    }
+
     @Post('update/:id')
     @Redirect('/budget-month')
     async updateBudgetMonth(@Body() newBudget: UpdateBudgetMonthDto, @Param('id', ParseIntPipe) id: number): Promise<BudgetMonthEntity>{

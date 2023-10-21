@@ -23,6 +23,13 @@ form label, input, textarea{
     flex-wrap: wrap;
     width: 100%;
 }
+.budgets a{
+    color:#0a0a0a;
+    text-decoration: none;
+}
+.budget:hover{
+    background-color:rgba(132, 39, 156, 0.1);
+}
 .block_profile{
     width: 300px;
     padding: 1rem;
@@ -52,7 +59,7 @@ form label, input, textarea{
 
 .budget{
     border: 1px solid #7A6C7A;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     padding: 2rem;
     margin-top: 20px;
 }
